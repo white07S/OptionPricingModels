@@ -1,0 +1,13 @@
+[package]
+name = "option_pricing_models"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+rand = "0.8"
+rand_distr = "0.4"
+statrs = "0.15"
+thiserror = "1.0"
+ndarray = "0.15"
+ndarray-linalg = "0.15"
+smartcore = "0.2.0"
