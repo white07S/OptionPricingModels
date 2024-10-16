@@ -263,9 +263,9 @@ Provides linear interpolation for interest rate curves, ensuring accurate rate e
 
 - **Linear Interpolation Formula:**
 
-  \[
+  $$
   r(t) = r_0 + (r_1 - r_0) \times \frac{t - t_0}{t_1 - t_0}
-  \]
+ $$
 
 - **Edge Cases Handling**: Returns boundary rates if time is outside the curve.
 
@@ -282,9 +282,9 @@ Includes functions like the cumulative normal distribution, essential for models
 
 - **Cumulative Normal Distribution (\( \Phi(x) \))**:
 
-  \[
+  $$
   \Phi(x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{x} e^{-t^2/2} dt
-  \]
+ $$
 
 **Implementation Highlights:**
 
@@ -340,23 +340,23 @@ The Binomial Model constructs a discrete-time lattice to model the possible path
 
 - **Up and Down Factors:**
 
-  \[
+  $$
   u = e^{\sigma \sqrt{\Delta t}}, \quad d = \frac{1}{u}
-  \]
+ $$
 
 - **Risk-neutral Probability:**
 
-  \[
+  $$
   p = \frac{e^{r \Delta t} - d}{u - d}
-  \]
+ $$
 
 - **Option Pricing via Backward Induction:**
 
   At each node, the option value is the discounted expected value of the option in the next step:
 
-  \[
+  $$
   V = e^{-r \Delta t} (p V_u + (1 - p) V_d)
-  \]
+ $$
 
   For American options, the value is the maximum of the continuation value and the intrinsic value.
 
@@ -368,19 +368,19 @@ The Black-Scholes Model provides a closed-form solution for European option pric
 
 - **d1 and d2:**
 
-  \[
+  $$
   d1 = \frac{\ln(S/K) + \left(r + \frac{\sigma^2}{2}\right) T}{\sigma \sqrt{T}}, \quad d2 = d1 - \sigma \sqrt{T}
-  \]
+ $$
 
 - **Option Price:**
 
-  \[
+  $$
   C = S \Phi(d1) - K e^{-r T} \Phi(d2) \quad (\text{Call})
-  \]
+ $$
 
-  \[
+  $$
   P = K e^{-r T} \Phi(-d2) - S \Phi(-d1) \quad (\text{Put})
-  \]
+ $$
 
   Where:
   - \( S \) = Spot price
@@ -398,19 +398,19 @@ The Heston Model introduces stochastic volatility, allowing the volatility of th
 
 - **Asset Price Process:**
 
-  \[
+  $$
   dS_t = \mu S_t dt + \sqrt{V_t} S_t dW_t^S
-  \]
+ $$
 
 - **Variance Process:**
 
-  \[
+  $$
   dV_t = \kappa (\theta - V_t) dt + \sigma \sqrt{V_t} dW_t^V
-  \]
+ $$
 
-  \[
+  $$
   \text{Corr}(dW_t^S, dW_t^V) = \rho
-  \]
+ $$
 
 **Parameters:**
 
@@ -441,11 +441,11 @@ LSM estimates the continuation value of an American option at each step by regre
 
 The continuation value \( C \) is estimated as:
 
-\[
+$$
 C(S_t) = \mathbb{E}[e^{-r \Delta t} V_{t+\Delta t} | S_t]
-\]
+$$
 
-Where \( V_{t+\Delta t} \) is the option value at the next time step.
+Where $$ V_{t+\Delta t} $$ is the option value at the next time step.
 
 #### Random Forest Regression
 
